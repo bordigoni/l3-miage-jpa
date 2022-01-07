@@ -5,6 +5,7 @@ import fr.uga.im2ag.l3.miage.db.model.Grade;
 import fr.uga.im2ag.l3.miage.db.model.Subject;
 
 import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
 import java.util.List;
 
 public class GradeRepositoryImpl extends BaseRepositoryImpl implements GradeRepository {
@@ -16,39 +17,46 @@ public class GradeRepositoryImpl extends BaseRepositoryImpl implements GradeRepo
      */
     public GradeRepositoryImpl(EntityManager entityManager) {
         super(entityManager);
+
     }
 
     @Override
     public List<Grade> findHighestGrades(int limit) {
-        // TODO
-        return null;
+        final TypedQuery<Grade> gradeQuery = entityManager.createQuery("select g from Grade g order by g.value desc", Grade.class)
+                .setMaxResults(limit);
+        return gradeQuery.getResultList();
     }
 
     @Override
     public List<Grade> findHighestGradesBySubject(int limit, Subject subject) {
-        // TODO
-        return null;
+         final  TypedQuery<Grade> gradeQuery = entityManager.createQuery(
+                 "select g from Grade g join Subject s where s=?1 order by g.value desc",
+                         Grade.class)
+                 .setParameter(1, subject)
+                 .setMaxResults(limit);
+
+        return gradeQuery.getResultList();
+
     }
 
     @Override
     public void save(Grade entity) {
-        // TODO
+        entityManager.persist(entity);
     }
 
     @Override
     public void delete(Grade entity) {
-        // TODO
+        entityManager.remove(entity);
     }
 
     @Override
     public Grade findById(Long id) {
-        // TODO
-        return null;
+        return entityManager.find(Grade.class, id);
     }
 
     @Override
     public List<Grade> getAll() {
-        // TODO
-        return null;
+        return entityManager.createNamedQuery("get-all-grades", Grade.class)
+                .getResultList();
     }
 }

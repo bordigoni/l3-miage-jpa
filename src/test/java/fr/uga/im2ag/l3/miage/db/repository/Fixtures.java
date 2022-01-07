@@ -52,10 +52,11 @@ public class Fixtures {
     public static Teacher createTeacher(Subject teaching, GraduationClass heading, Student... favs) {
         final var teacher = new Teacher()
                 .setTeaching(teaching)
-                .setHeading(heading)
-                .setFavorites(Arrays.asList(favs));
+                .setHeading(heading);
+        if(favs != null)
+                teacher.setFavorites(Arrays.asList(favs));
 
-        teacher.setBirth(Faker.instance().date().past(30 * 365, 60 * 365, TimeUnit.DAYS))
+        teacher.setBirth(Faker.instance().date().past(60 * 365, 30 * 365, TimeUnit.DAYS))
                 .setFirstName(Faker.instance().name().firstName())
                 .setLastName(Faker.instance().name().lastName())
                 .setGender(Person.Gender.values()[Faker.instance().number().numberBetween(0, 2)]);

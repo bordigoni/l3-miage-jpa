@@ -20,31 +20,26 @@ public class StudentRepositoryImpl extends BaseRepositoryImpl implements Student
 
     @Override
     public void save(Student entity) {
-        // TODO
-
+        entityManager.persist(entity);
     }
 
     @Override
     public void delete(Student entity) {
-        // TODO
-
+        entityManager.remove(entity);
     }
 
     @Override
     public Student findById(Long id) {
-        // TODO
-        return null;
+        return entityManager.find(Student.class, id);
     }
 
     @Override
     public List<Student> getAll() {
-        // TODO
         return null;
     }
 
     @Override
     public List<Student> findStudentHavingGradeAverageAbove(float minAverage) {
-        // TODO
         return null;
     }
 }

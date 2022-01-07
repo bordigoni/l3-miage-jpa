@@ -1,6 +1,7 @@
 package fr.uga.im2ag.l3.miage.db.repository;
 
 import fr.uga.im2ag.l3.miage.db.repository.RepositoryFactory;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 
 import javax.persistence.EntityManager;
@@ -18,5 +19,10 @@ public abstract class Base {
     public final void setup() {
         entityManager = Persistence.createEntityManagerFactory("TEST")
                 .createEntityManager();
+    }
+
+    @AfterEach
+    public final void close() {
+        entityManager.close();
     }
 }

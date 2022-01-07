@@ -6,6 +6,13 @@
              version="2.0">
     <persistence-unit name="JPA-HBM">
 
+        <class>fr.uga.im2ag.l3.miage.db.model.Subject</class>
+        <class>fr.uga.im2ag.l3.miage.db.model.Grade</class>
+        <class>fr.uga.im2ag.l3.miage.db.model.Person</class>
+        <class>fr.uga.im2ag.l3.miage.db.model.Student</class>
+        <class>fr.uga.im2ag.l3.miage.db.model.Teacher</class>
+        <class>fr.uga.im2ag.l3.miage.db.model.GraduationClass</class>
+
         <properties>
             <property name="javax.persistence.jdbc.url" value="jdbc:mariadb://localhost:3306/ave"/>
             <property name="javax.persistence.jdbc.user" value="admin"/>

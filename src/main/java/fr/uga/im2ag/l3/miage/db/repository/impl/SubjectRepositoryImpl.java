@@ -10,36 +10,37 @@ import java.util.List;
 
 public class SubjectRepositoryImpl extends BaseRepositoryImpl implements SubjectRepository {
 
-
     public SubjectRepositoryImpl(EntityManager entityManager) {
         super(entityManager);
     }
 
     @Override
     public void save(Subject entity) {
-        // TODO
+        entityManager.persist(entity);
     }
 
     @Override
     public void delete(Subject entity) {
-        // TODO
+        entityManager.remove(entity);
     }
 
     @Override
     public Subject findById(Long id) {
-        // TODO
-        return null;
+        return entityManager.find(Subject.class, id);
     }
 
     @Override
     public List<Subject> getAll() {
-        // TODO
-        return null;
+        return entityManager.createNamedQuery("get-all-subjects", Subject.class)
+                .getResultList();
     }
 
     @Override
     public Collection<Teacher> findTeachers(Long id) {
-        // TODO
-        return null;
+        return entityManager.createQuery(
+                        "select t from Teacher t join t.teaching s where s.id=?1",
+                        Teacher.class)
+                .setParameter(1, id)
+                .getResultList();
     }
 }
