@@ -43,41 +43,6 @@ class SubjectTest extends Base {
     }
 
     @Test
-    void shouldUpdateSubject() {
-        final var subject = Fixtures.createSubject();
-
-        entityManager.getTransaction().begin();
-        subjectRepository.save(subject);
-        entityManager.getTransaction().commit();
-
-        entityManager.getTransaction().begin();
-        subject.setName("My Subject");
-        subjectRepository.save(subject);
-        entityManager.getTransaction().commit();
-        entityManager.detach(subject);
-
-        Subject subjectFromDB = subjectRepository.findById(Subject.class, subject.getId());
-        assertThat(subject).isNotSameAs(subjectFromDB);
-        assertThat(subject.getName()).isEqualTo("My Subject");
-
-    }
-
-    @Test
-    void shouldDeleteSubject() {
-        final var subject = Fixtures.createSubject();
-
-        entityManager.getTransaction().begin();
-        subjectRepository.save(subject);
-        entityManager.getTransaction().commit();
-
-        final var all = subjectRepository.getAll(Subject.class);
-        assertThat(all).contains(subject);
-
-        subjectRepository.delete(subject);
-        assertThat(subjectRepository.findById(Subject.class, subject.getId())).isNull();
-    }
-
-    @Test
     void shouldFindTeachersForSubject() {
 
         entityManager.getTransaction().begin();

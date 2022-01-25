@@ -1,5 +1,6 @@
 package fr.uga.im2ag.l3.miage.db.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -16,7 +17,7 @@ public class Student extends Person {
     @ManyToOne(fetch = FetchType.EAGER)
     private GraduationClass belongTo;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.PERSIST)
     private List<Grade> grades;
 
     public GraduationClass getBelongTo() {

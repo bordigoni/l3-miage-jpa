@@ -39,7 +39,7 @@ public class Fixtures {
 
     public static Student createStudent(GraduationClass graduationClass) {
         var student = new Student().setBelongTo(graduationClass);
-        student.setBirth(Faker.instance().date().past(19 * 365, 21 * 365, TimeUnit.DAYS))
+        student.setBirth(Faker.instance().date().past(19 * 365, TimeUnit.DAYS))
                 .setFirstName(Faker.instance().name().firstName())
                 .setLastName(Faker.instance().name().lastName())
                 .setGender(Person.Gender.values()[Faker.instance().number().numberBetween(0, 2)]);

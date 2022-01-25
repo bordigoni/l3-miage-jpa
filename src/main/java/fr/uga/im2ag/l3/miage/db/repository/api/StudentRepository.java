@@ -11,6 +11,6 @@ public interface StudentRepository extends Repository<Student, Long> {
      * @param minAverage the low threshold grade average
      * @return student above average grade
      */
-    List<Student> findStudentHavingGradeAverageAbove(float minAverage);
+    List<Student> findStudentHavingGradeAverageAbove(double minAverage);
 
 }

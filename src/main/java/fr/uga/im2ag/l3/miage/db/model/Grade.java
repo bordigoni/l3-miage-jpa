@@ -22,7 +22,7 @@ public class Grade {
     @ManyToOne
     private Subject subject;
 
-    @Column(nullable = false, name = "grade")
+    @Column(nullable = false, name = "grade", updatable = false)
     private Float value;
 
     @Column(nullable = false)

@@ -30,7 +30,7 @@ public class GradeRepositoryImpl extends BaseRepositoryImpl implements GradeRepo
     @Override
     public List<Grade> findHighestGradesBySubject(int limit, Subject subject) {
          final  TypedQuery<Grade> gradeQuery = entityManager.createQuery(
-                 "select g from Grade g join Subject s where s=?1 order by g.value desc",
+                 "select g from Grade g join g.subject s where s=?1 order by g.value desc",
                          Grade.class)
                  .setParameter(1, subject)
                  .setMaxResults(limit);
