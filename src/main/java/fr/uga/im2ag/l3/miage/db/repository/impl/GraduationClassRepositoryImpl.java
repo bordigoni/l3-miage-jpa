@@ -1,7 +1,7 @@
 package fr.uga.im2ag.l3.miage.db.repository.impl;
 
-import fr.uga.im2ag.l3.miage.db.repository.api.GraduationClassRepository;
 import fr.uga.im2ag.l3.miage.db.model.GraduationClass;
+import fr.uga.im2ag.l3.miage.db.repository.api.GraduationClassRepository;
 
 import javax.persistence.EntityManager;
 import java.util.List;

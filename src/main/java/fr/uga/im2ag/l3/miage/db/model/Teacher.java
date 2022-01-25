@@ -11,7 +11,7 @@ import java.util.List;
 @Entity
 @DiscriminatorValue("T")
 @NamedQuery(name = "get-all-teachers", query = "select t from Teacher t")
-public class Teacher extends Person{
+public class Teacher extends Person {
 
     @ManyToOne(optional = false)
     private Subject teaching;

@@ -1,5 +1,6 @@
 package fr.uga.im2ag.l3.miage.db.repository;
 
+import fr.uga.im2ag.l3.miage.db.model.GraduationClass;
 import fr.uga.im2ag.l3.miage.db.repository.api.GraduationClassRepository;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -30,7 +31,7 @@ class GraduationClassTest extends Base {
         classRepository.save(aClass);
         entityManager.getTransaction().commit();
         entityManager.detach(aClass);
-        GraduationClass persistentClass = classRepository.findById(GraduationClass.class, aClass.getId());
+        GraduationClass persistentClass = classRepository.findById(aClass.getId());
         assertThat(persistentClass)
                 .isNotSameAs(aClass);
         assertThat(persistentClass.getName()).isEqualTo(aClass.getName());

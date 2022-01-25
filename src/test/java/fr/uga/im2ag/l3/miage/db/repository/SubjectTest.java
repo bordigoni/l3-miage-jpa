@@ -1,7 +1,7 @@
 package fr.uga.im2ag.l3.miage.db.repository;
 
 import fr.uga.im2ag.l3.miage.db.repository.api.SubjectRepository;
-import fr.uga.im2ag.l3.miage.db.dao.api.TeacherRepository;
+import fr.uga.im2ag.l3.miage.db.repository.api.TeacherRepository;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

@@ -1,10 +1,9 @@
 package fr.uga.im2ag.l3.miage.db.repository.impl;
 
-import fr.uga.im2ag.l3.miage.db.repository.api.TeacherRepository;
 import fr.uga.im2ag.l3.miage.db.model.Teacher;
+import fr.uga.im2ag.l3.miage.db.repository.api.TeacherRepository;
 
 import javax.persistence.EntityManager;
-
 import java.util.List;
 
 public class TeacherRepositoryImpl extends BaseRepositoryImpl implements TeacherRepository {

@@ -12,8 +12,8 @@ import javax.persistence.InheritanceType;
 import java.util.Date;
 
 @Entity
-@Inheritance(strategy= InheritanceType.JOINED)
-@DiscriminatorColumn(name="TYPE_ENTITE")
+@Inheritance(strategy = InheritanceType.JOINED)
+@DiscriminatorColumn(name = "TYPE_ENTITE")
 public abstract class Person {
 
     @Id

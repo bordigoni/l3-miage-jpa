@@ -9,15 +9,16 @@ public interface GradeRepository extends Repository<Grade, Long> {
 
     /**
      * Get the highest grades amongst all subjects
+     *
      * @param limit number of grades to return
      * @return a list of the nth best grades
      */
     List<Grade> findHighestGrades(int limit);
 
 
-
     /**
      * Get the highest grades for a given subject
+     *
      * @param limit number of grades to return
      * @return a list of the nth best grades for the subject
      */

@@ -6,6 +6,7 @@ public interface GraduationClassRepository extends Repository<GraduationClass, L
 
     /**
      * Find graduation class for a given year and name.
+     *
      * @param year the year
      * @param name the name as in {@link GraduationClass#getName()}
      * @return a graduation class or null

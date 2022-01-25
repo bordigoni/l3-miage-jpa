@@ -1,5 +1,8 @@
 package fr.uga.im2ag.l3.miage.db.repository;
 
+import fr.uga.im2ag.l3.miage.db.model.Grade;
+import fr.uga.im2ag.l3.miage.db.model.Student;
+import fr.uga.im2ag.l3.miage.db.repository.api.GradeRepository;
 import fr.uga.im2ag.l3.miage.db.repository.api.GraduationClassRepository;
 import fr.uga.im2ag.l3.miage.db.repository.api.StudentRepository;
 import fr.uga.im2ag.l3.miage.db.repository.api.SubjectRepository;
@@ -9,7 +12,6 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -58,7 +60,7 @@ class StudentTest extends Base {
         entityManager.detach(grade1);
         entityManager.detach(grade2);
 
-        final var studentDB = studentRepository.findById(Student.class, student.getId());
+        final var studentDB = studentRepository.findById(student.getId());
         assertThat(studentDB).isNotSameAs(student);
         assertThat(studentDB.getLastName()).isEqualTo(student.getLastName());
         assertThat(studentDB.getGrades())
@@ -67,7 +69,7 @@ class StudentTest extends Base {
         assertThat(studentDB.getBelongTo().getName())
                 .isEqualTo(student.getBelongTo().getName());
 
-        final var graduationClassDB = graduationClassRepository.findById(GraduationClass.class, aClass.getId());
+        final var graduationClassDB = graduationClassRepository.findById(aClass.getId());
         assertThat(graduationClassDB).isNotSameAs(aClass);
         assertThat(graduationClassDB.getStudents()).extracting(Student::getLastName).containsExactly(student.getLastName());
 
@@ -97,7 +99,7 @@ class StudentTest extends Base {
         entityManager.getTransaction().commit();
         entityManager.detach(student);
 
-        final var studentDB = studentRepository.findById(Student.class, student.getId());
+        final var studentDB = studentRepository.findById(student.getId());
         assertThat(studentDB).isNotSameAs(student);
         assertThat(studentDB.getGrades()).hasSize(3);
     }

@@ -8,7 +8,6 @@ import fr.uga.im2ag.l3.miage.db.model.Student;
 import fr.uga.im2ag.l3.miage.db.model.Subject;
 import fr.uga.im2ag.l3.miage.db.model.Teacher;
 
-import java.time.temporal.ChronoUnit;
 import java.util.Arrays;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
@@ -16,7 +15,7 @@ import java.util.concurrent.TimeUnit;
 public class Fixtures {
 
     private static final Faker FAKER = Faker.instance(new Random(42));
-    
+
     public static Subject createSubject() {
         return new Subject()
                 .setName(FAKER.funnyName().name())
@@ -56,8 +55,8 @@ public class Fixtures {
         final var teacher = new Teacher()
                 .setTeaching(teaching)
                 .setHeading(heading);
-        if(favs != null)
-                teacher.setFavorites(Arrays.asList(favs));
+        if (favs != null)
+            teacher.setFavorites(Arrays.asList(favs));
 
         teacher.setBirth(FAKER.date().past(60 * 365, 30 * 365, TimeUnit.DAYS))
                 .setFirstName(FAKER.name().firstName())

@@ -1,8 +1,9 @@
 package fr.uga.im2ag.l3.miage.db.repository;
 
-import fr.uga.im2ag.l3.miage.db.dao.api.GraduationClassRepository;
-import fr.uga.im2ag.l3.miage.db.dao.api.StudentRepository;
-import fr.uga.im2ag.l3.miage.db.dao.api.SubjectRepository;
+import fr.uga.im2ag.l3.miage.db.model.Student;
+import fr.uga.im2ag.l3.miage.db.repository.api.GraduationClassRepository;
+import fr.uga.im2ag.l3.miage.db.repository.api.StudentRepository;
+import fr.uga.im2ag.l3.miage.db.repository.api.SubjectRepository;
 import fr.uga.im2ag.l3.miage.db.repository.api.TeacherRepository;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -55,7 +56,7 @@ class TeacherTest extends Base {
         entityManager.detach(stu2);
         entityManager.detach(teacher);
 
-        final var teacherFromDB = teacherRepository.findById(Teacher.class, teacher.getId());
+        final var teacherFromDB = teacherRepository.findById(teacher.getId());
         assertThat(teacherFromDB).isNotSameAs(teacher);
         assertThat(teacherFromDB.getTeaching()).isNotNull();
         assertThat(teacherFromDB.getTeaching().getName()).isEqualTo(teacher.getTeaching().getName());
@@ -87,7 +88,7 @@ class TeacherTest extends Base {
 
         teacherRepository.delete(teacher);
 
-        final var teacherFromDB = teacherRepository.findById(Teacher.class, teacher.getId());
+        final var teacherFromDB = teacherRepository.findById(teacher.getId());
         assertThat(teacherFromDB).isNull();
 
     }

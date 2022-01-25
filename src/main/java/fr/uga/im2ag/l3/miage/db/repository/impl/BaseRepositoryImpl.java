@@ -11,6 +11,7 @@ public abstract class BaseRepositoryImpl {
 
     /**
      * Build a base repository
+     *
      * @param entityManager the entity manager
      */
     protected BaseRepositoryImpl(EntityManager entityManager) {

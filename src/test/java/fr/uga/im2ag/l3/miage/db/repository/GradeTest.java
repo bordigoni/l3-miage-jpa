@@ -1,15 +1,13 @@
 package fr.uga.im2ag.l3.miage.db.repository;
 
+import fr.uga.im2ag.l3.miage.db.model.Grade;
 import fr.uga.im2ag.l3.miage.db.repository.api.GradeRepository;
-import fr.uga.im2ag.l3.miage.db.dao.api.SubjectRepository;
+import fr.uga.im2ag.l3.miage.db.repository.api.SubjectRepository;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.List;
-
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class GradeTest extends Base {
 
@@ -41,7 +39,7 @@ class GradeTest extends Base {
         entityManager.detach(grade);
         entityManager.detach(subject);
 
-        var persistentGrade = gradeRepository.findById(Grade.class, grade.getId());
+        var persistentGrade = gradeRepository.findById(grade.getId());
         assertThat(persistentGrade).isNotNull().isNotSameAs(grade);
         assertThat(persistentGrade.getSubject()).isNotNull().isNotSameAs(grade.getSubject());
 
@@ -68,7 +66,7 @@ class GradeTest extends Base {
 
         entityManager.detach(grade);
 
-        Grade gradeFromDB = gradeRepository.findById(Grade.class, grade.getId());
+        Grade gradeFromDB = gradeRepository.findById(grade.getId());
 
         assertThat(gradeFromDB.getValue()).isEqualTo(value);
 

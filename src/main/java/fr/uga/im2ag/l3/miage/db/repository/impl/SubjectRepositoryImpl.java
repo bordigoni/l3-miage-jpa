@@ -1,8 +1,8 @@
 package fr.uga.im2ag.l3.miage.db.repository.impl;
 
-import fr.uga.im2ag.l3.miage.db.repository.api.SubjectRepository;
 import fr.uga.im2ag.l3.miage.db.model.Subject;
 import fr.uga.im2ag.l3.miage.db.model.Teacher;
+import fr.uga.im2ag.l3.miage.db.repository.api.SubjectRepository;
 
 import javax.persistence.EntityManager;
 import java.util.Collection;

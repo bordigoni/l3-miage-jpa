@@ -15,7 +15,7 @@ import java.util.List;
 @Table(uniqueConstraints = {
         @UniqueConstraint(columnNames = {"name", "class_year"})
 })
-@NamedQuery(name = "get-all-classes", query="select c from GraduationClass c")
+@NamedQuery(name = "get-all-classes", query = "select c from GraduationClass c")
 public class GraduationClass {
 
     @Id

@@ -9,6 +9,7 @@ public interface SubjectRepository extends Repository<Subject, Long> {
 
     /**
      * Retrieve teachers teaching a given subject (by id)
+     *
      * @param id the id of the subject
      * @return a collection (possibly empty) of teachers teaching that subject
      */
