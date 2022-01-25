@@ -21,7 +21,10 @@ public class TeacherRepositoryImpl extends BaseRepositoryImpl implements Teacher
 
     @Override
     public Teacher findHeadingGraduationClassByYearAndName(Integer year, String name) {
-        return null;
+        return entityManager.createQuery("select t from Teacher t join t.heading c where c.year=?1 and c.name=?2", Teacher.class)
+                .setParameter(1, year)
+                .setParameter(2, name)
+                .getSingleResult();
     }
 
     @Override

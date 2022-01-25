@@ -44,7 +44,7 @@ public class StudentRepositoryImpl extends BaseRepositoryImpl implements Student
                 "select s " +
                         "   from Student s " +
                         "   join s.grades g " +
-                        "group by s having avg(g.value*g.weight)/sum(g.weight) > ?1",
+                        "group by s having sum(g.value*g.weight)/sum(g.weight) > ?1",
                 Student.class).setParameter(1, minAverage).getResultList();
     }
 }

@@ -115,8 +115,8 @@ class StudentTest extends Base {
         final var subject1 = Fixtures.createSubject();
         final var grade1 = Fixtures.createGrade(subject1);
         final var grade2 = Fixtures.createGrade(subject1);
-        grade1.setValue(15f);
-        grade2.setValue(15f);
+        grade1.setValue(10f);
+        grade2.setValue(11f);
         student1.setGrades(Arrays.asList(grade1, grade2));
         final var subject2 = Fixtures.createSubject();
         final var grade3 = Fixtures.createGrade(subject2);

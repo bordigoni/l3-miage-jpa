@@ -1,5 +1,6 @@
 package fr.uga.im2ag.l3.miage.db.repository;
 
+import com.github.javafaker.Faker;
 import fr.uga.im2ag.l3.miage.db.repository.RepositoryFactory;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
