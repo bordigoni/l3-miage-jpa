@@ -61,6 +61,7 @@ class GradeTest extends Base {
 
         entityManager.getTransaction().begin();
         grade.setValue(10.0f);
+        grade.setWeight(0.2f);
         gradeRepository.save(grade);
         entityManager.getTransaction().commit();
 
